@@ -12,7 +12,9 @@ use App\Http\Requests\UpdateTicketRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rules;
 
 class AdminController extends Controller
 {
@@ -137,6 +139,38 @@ class AdminController extends Controller
 
         return redirect()->route('admin.users')
             ->with('success', 'Role updated successfully for ' . $user->name);
+    }
+
+    public function createUser()
+    {
+        $roles = ['faculty', 'staff', 'maintenance', 'admin'];
+
+        return view('admin.create-user', compact('roles'));
+    }
+
+    public function storeUser(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'role' => ['required', 'in:faculty,staff,maintenance,admin'],
+            'department' => ['nullable', 'string', 'max:255'],
+            'phone' => ['nullable', 'string', 'max:20'],
+        ]);
+
+        $user = User::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['password']),
+            'department' => $validated['department'],
+            'phone' => $validated['phone'],
+        ]);
+
+        $user->assignRole($validated['role']);
+
+        return redirect()->route('admin.users')
+            ->with('success', 'User account created successfully for ' . $user->name);
     }
 
     public function analytics()

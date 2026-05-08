@@ -21,6 +21,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('dashboard');
         Route::get('/tickets', [AdminController::class, 'tickets'])->name('tickets');
         Route::get('/users', [AdminController::class, 'users'])->name('users');
+        Route::get('/users/create', [AdminController::class, 'createUser'])->name('users.create');
+        Route::post('/users', [AdminController::class, 'storeUser'])->name('users.store');
         Route::post('/users/{user}/role', [AdminController::class, 'assignRole'])->name('users.assign-role');
         Route::get('/analytics', [AdminController::class, 'analytics'])->name('analytics');
         Route::get('/categories', [AdminController::class, 'categories'])->name('categories');

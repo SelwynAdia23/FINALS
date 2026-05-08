@@ -4,7 +4,12 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('User Management') }}
             </h2>
-            <a href="{{ route('admin.dashboard') }}" class="text-sm text-gray-600 hover:text-gray-900">&larr; Back</a>
+            <div class="flex gap-3">
+                <a href="{{ route('admin.users.create') }}" class="px-3 py-1.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition">
+                    + Create User
+                </a>
+                <a href="{{ route('admin.dashboard') }}" class="text-sm text-gray-600 hover:text-gray-900">&larr; Back</a>
+            </div>
         </div>
     </x-slot>
 
