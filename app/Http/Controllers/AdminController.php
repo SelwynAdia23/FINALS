@@ -311,7 +311,7 @@ class AdminController extends Controller
         $name = $user->name;
 
         DB::transaction(function () use ($user) {
-            foreach ($user->tickets as $ticket) {
+            foreach ($user->tickets()->withTrashed()->get() as $ticket) {
                 foreach ($ticket->attachments as $attachment) {
                     if (Storage::exists('public/' . $attachment->filename)) {
                         Storage::delete('public/' . $attachment->filename);
@@ -321,7 +321,7 @@ class AdminController extends Controller
                 $ticket->attachments()->delete();
             }
 
-            $user->tickets()->delete();
+            $user->tickets()->withTrashed()->get()->each->forceDelete();
             $user->ticketHistories()->delete();
             $user->assignedTickets()->update(['assigned_to' => null]);
             $user->syncRoles([]);
