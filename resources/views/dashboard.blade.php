@@ -82,7 +82,7 @@
                             </thead>
                             <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                                 @foreach($recentTickets as $ticket)
-                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700 border-l-4 {{ match($ticket->status) { 'pending' => 'border-yellow-400', 'in_progress' => 'border-blue-400', 'resolved' => 'border-green-400', 'closed' => 'border-gray-400', default => 'border-transparent' } }}">
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-blue-600 dark:text-blue-400">
                                             <a href="{{ route('tickets.show', $ticket) }}" class="hover:underline">{{ $ticket->ticket_number }}</a>
                                         </td>

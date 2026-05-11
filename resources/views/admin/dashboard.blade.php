@@ -165,8 +165,8 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                             @foreach($recentTickets as $ticket)
-                                <tr class="hover:bg-gray-50">
-                                    <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-blue-600">
+                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700 border-l-4 {{ match($ticket->status) { 'pending' => 'border-yellow-400 dark:border-yellow-600', 'in_progress' => 'border-blue-400 dark:border-blue-600', 'resolved' => 'border-green-400 dark:border-green-600', 'closed' => 'border-gray-400 dark:border-gray-600', default => 'border-transparent' } }}">
+                                    <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-blue-600 dark:text-blue-400">
                                         <a href="{{ route('tickets.show', $ticket) }}">{{ $ticket->ticket_number }}</a>
                                     </td>
                                     <td class="px-4 py-3 text-sm text-gray-900 max-w-xs truncate">{{ Str::limit($ticket->subject, 35) }}</td>
