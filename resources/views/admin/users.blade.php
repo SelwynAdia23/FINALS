@@ -41,17 +41,25 @@
                                         </span>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm">
-                                        <form action="{{ route('admin.users.assign-role', $user) }}" method="POST" class="flex gap-2" id="role-form-{{ $user->id }}">
-                                            @csrf
-                                            <select name="role" class="text-sm rounded-md border-gray-300 shadow-sm">
-                                                @foreach($roles as $role)
-                                                    <option value="{{ $role }}" {{ $user->hasRole($role) ? 'selected' : '' }}>{{ ucfirst($role) }}</option>
-                                                @endforeach
-                                            </select>
-                                            <button type="submit" class="btn-action btn-edit" onclick="Swal.fire({title:'Role updated!',icon:'success',toast:true,position:'top-end',showConfirmButton:false,timer:1500})">
-                                                Update
-                                            </button>
-                                        </form>
+                                        <div class="flex gap-2 items-center">
+                                            <form action="{{ route('admin.users.assign-role', $user) }}" method="POST" class="flex gap-2" id="role-form-{{ $user->id }}">
+                                                @csrf
+                                                <select name="role" class="text-sm rounded-md border-gray-300 shadow-sm">
+                                                    @foreach($roles as $role)
+                                                        <option value="{{ $role }}" {{ $user->hasRole($role) ? 'selected' : '' }}>{{ ucfirst($role) }}</option>
+                                                    @endforeach
+                                                </select>
+                                                <button type="submit" class="btn-action btn-edit" onclick="Swal.fire({title:'Role updated!',icon:'success',toast:true,position:'top-end',showConfirmButton:false,timer:1500})">
+                                                    Update
+                                                </button>
+                                            </form>
+                                            <form action="{{ route('admin.users.delete', $user) }}" method="POST" class="inline">
+                                                @csrf @method('DELETE')
+                                                <button type="submit" class="btn-action btn-delete" onclick="return confirmDelete('Delete user {{ $user->name }}? This will also delete all their tickets and associated data.')">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

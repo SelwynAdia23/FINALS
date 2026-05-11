@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/users/create', [AdminController::class, 'createUser'])->name('users.create');
         Route::post('/users', [AdminController::class, 'storeUser'])->name('users.store');
         Route::post('/users/{user}/role', [AdminController::class, 'assignRole'])->name('users.assign-role');
+        Route::delete('/users/{user}', [AdminController::class, 'deleteUser'])->name('users.delete');
         Route::get('/analytics', [AdminController::class, 'analytics'])->name('analytics');
         Route::get('/categories', [AdminController::class, 'categories'])->name('categories');
         Route::get('/campuses', [AdminController::class, 'campuses'])->name('campuses');

@@ -300,4 +300,35 @@ class AdminController extends Controller
         return redirect()->route('admin.tickets')
             ->with('success', 'Ticket ' . $ticketNumber . ' has been deleted.');
     }
+
+    public function deleteUser(User $user)
+    {
+        if ($user->id === Auth::id()) {
+            return redirect()->route('admin.users')
+                ->with('error', 'You cannot delete your own account.');
+        }
+
+        $name = $user->name;
+
+        DB::transaction(function () use ($user) {
+            foreach ($user->tickets as $ticket) {
+                foreach ($ticket->attachments as $attachment) {
+                    if (Storage::exists('public/' . $attachment->filename)) {
+                        Storage::delete('public/' . $attachment->filename);
+                    }
+                }
+                $ticket->histories()->delete();
+                $ticket->attachments()->delete();
+            }
+
+            $user->tickets()->delete();
+            $user->ticketHistories()->delete();
+            $user->assignedTickets()->update(['assigned_to' => null]);
+            $user->syncRoles([]);
+            $user->delete();
+        });
+
+        return redirect()->route('admin.users')
+            ->with('success', 'User account "' . $name . '" has been deleted.');
+    }
 }
