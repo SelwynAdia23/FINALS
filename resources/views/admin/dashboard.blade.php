@@ -1,78 +1,78 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-between items-center">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 {{ __('Admin Dashboard') }}
             </h2>
-            <a href="{{ route('dashboard') }}" class="text-sm text-gray-600 hover:text-gray-900">&larr; Back to Dashboard</a>
+            <a href="{{ route('dashboard') }}" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200">&larr; Back to Dashboard</a>
         </div>
     </x-slot>
 
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
-                <a href="{{ route('admin.tickets') }}" class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-4 hover:shadow-md transition cursor-pointer block">
-                    <div class="text-sm font-medium text-gray-500">Total Tickets</div>
-                    <div class="mt-1 text-3xl font-bold text-gray-900">{{ $stats['total_tickets'] }}</div>
+                <a href="{{ route('admin.tickets') }}" class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-4 hover:shadow-md dark:hover:shadow-gray-800/50 transition cursor-pointer block">
+                    <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Tickets</div>
+                    <div class="mt-1 text-3xl font-bold text-gray-900 dark:text-gray-100">{{ $stats['total_tickets'] }}</div>
                 </a>
-                <a href="{{ route('admin.tickets', ['status' => 'pending']) }}" class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-4 hover:shadow-md transition cursor-pointer block">
-                    <div class="text-sm font-medium text-yellow-600">Pending</div>
-                    <div class="mt-1 text-3xl font-bold text-yellow-600">{{ $stats['pending'] }}</div>
+                <a href="{{ route('admin.tickets', ['status' => 'pending']) }}" class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-4 hover:shadow-md dark:hover:shadow-gray-800/50 transition cursor-pointer block">
+                    <div class="text-sm font-medium text-yellow-600 dark:text-yellow-400">Pending</div>
+                    <div class="mt-1 text-3xl font-bold text-yellow-600 dark:text-yellow-400">{{ $stats['pending'] }}</div>
                 </a>
-                <a href="{{ route('admin.tickets', ['status' => 'in_progress']) }}" class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-4 hover:shadow-md transition cursor-pointer block">
-                    <div class="text-sm font-medium text-blue-600">In Progress</div>
-                    <div class="mt-1 text-3xl font-bold text-blue-600">{{ $stats['in_progress'] }}</div>
+                <a href="{{ route('admin.tickets', ['status' => 'in_progress']) }}" class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-4 hover:shadow-md dark:hover:shadow-gray-800/50 transition cursor-pointer block">
+                    <div class="text-sm font-medium text-blue-600 dark:text-blue-400">In Progress</div>
+                    <div class="mt-1 text-3xl font-bold text-blue-600 dark:text-blue-400">{{ $stats['in_progress'] }}</div>
                 </a>
-                <a href="{{ route('admin.tickets', ['status' => 'resolved']) }}" class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-4 hover:shadow-md transition cursor-pointer block">
-                    <div class="text-sm font-medium text-green-600">Resolved</div>
-                    <div class="mt-1 text-3xl font-bold text-green-600">{{ $stats['resolved'] }}</div>
+                <a href="{{ route('admin.tickets', ['status' => 'resolved']) }}" class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-4 hover:shadow-md dark:hover:shadow-gray-800/50 transition cursor-pointer block">
+                    <div class="text-sm font-medium text-green-600 dark:text-green-400">Resolved</div>
+                    <div class="mt-1 text-3xl font-bold text-green-600 dark:text-green-400">{{ $stats['resolved'] }}</div>
                 </a>
-                <a href="{{ route('admin.tickets', ['status' => 'closed']) }}" class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-4 hover:shadow-md transition cursor-pointer block">
-                    <div class="text-sm font-medium text-gray-600">Closed</div>
-                    <div class="mt-1 text-3xl font-bold text-gray-600">{{ $stats['closed'] }}</div>
+                <a href="{{ route('admin.tickets', ['status' => 'closed']) }}" class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-4 hover:shadow-md dark:hover:shadow-gray-800/50 transition cursor-pointer block">
+                    <div class="text-sm font-medium text-gray-600 dark:text-gray-400">Closed</div>
+                    <div class="mt-1 text-3xl font-bold text-gray-600 dark:text-gray-400">{{ $stats['closed'] }}</div>
                 </a>
-                <a href="{{ route('admin.users') }}" class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-4 hover:shadow-md transition cursor-pointer block">
-                    <div class="text-sm font-medium text-indigo-600">Users</div>
-                    <div class="mt-1 text-3xl font-bold text-indigo-600">{{ $stats['total_users'] }}</div>
+                <a href="{{ route('admin.users') }}" class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-4 hover:shadow-md dark:hover:shadow-gray-800/50 transition cursor-pointer block">
+                    <div class="text-sm font-medium text-indigo-600 dark:text-indigo-400">Users</div>
+                    <div class="mt-1 text-3xl font-bold text-indigo-600 dark:text-indigo-400">{{ $stats['total_users'] }}</div>
                 </a>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div class="bg-white shadow-sm sm:rounded-lg p-4">
-                    <h3 class="font-semibold text-gray-900 mb-3">By Category</h3>
+                <div class="bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg p-4">
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-3">By Category</h3>
                     <div class="space-y-2">
                         @foreach($ticketsByCategory->take(8) as $cat)
                             <div class="flex justify-between items-center">
-                                <span class="text-sm text-gray-600">{{ $cat->name }}</span>
-                                <span class="text-sm font-medium text-gray-900">{{ $cat->count }}</span>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">{{ $cat->name }}</span>
+                                <span class="text-sm font-medium text-gray-900 dark:text-gray-100">{{ $cat->count }}</span>
                             </div>
                         @endforeach
                     </div>
                 </div>
-                <div class="bg-white shadow-sm sm:rounded-lg p-4">
-                    <h3 class="font-semibold text-gray-900 mb-3">By Campus</h3>
+                <div class="bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg p-4">
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-3">By Campus</h3>
                     <div class="space-y-2">
                         @foreach($ticketsByCampus as $campus)
                             <div class="flex justify-between items-center">
-                                <span class="text-sm text-gray-600">{{ $campus->name }}</span>
-                                <span class="text-sm font-medium text-gray-900">{{ $campus->count }}</span>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">{{ $campus->name }}</span>
+                                <span class="text-sm font-medium text-gray-900 dark:text-gray-100">{{ $campus->count }}</span>
                             </div>
                         @endforeach
                     </div>
                 </div>
-                <div class="bg-white shadow-sm sm:rounded-lg p-4">
-                    <h3 class="font-semibold text-gray-900 mb-3">Summary</h3>
+                <div class="bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg p-4">
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-3">Summary</h3>
                     <div class="space-y-3">
                         <div class="flex justify-between">
-                            <span class="text-sm text-gray-600">Students</span>
+                            <span class="text-sm text-gray-600 dark:text-gray-400">Students</span>
                             <span class="text-sm font-medium">{{ $stats['students'] }}</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-sm text-gray-600">Faculty/Staff</span>
+                            <span class="text-sm text-gray-600 dark:text-gray-400">Faculty/Staff</span>
                             <span class="text-sm font-medium">{{ $stats['staff'] }}</span>
                         </div>
                         <div class="flex justify-between border-t pt-3">
-                            <span class="text-sm text-gray-600">Avg. Resolution</span>
+                            <span class="text-sm text-gray-600 dark:text-gray-400">Avg. Resolution</span>
                             <span class="text-sm font-medium">{{ $avgResolutionTime ? number_format($avgResolutionTime, 1) . ' hrs' : 'N/A' }}</span>
                         </div>
                     </div>
@@ -81,9 +81,9 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 @if($urgentTickets->count() > 0)
-                    <div class="bg-white shadow-sm sm:rounded-lg">
-                        <div class="p-4 border-b border-gray-200 bg-red-50">
-                            <h3 class="font-semibold text-red-800 flex items-center gap-2">
+                    <div class="bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg">
+                        <div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-red-50 dark:bg-red-900/20">
+                            <h3 class="font-semibold text-red-800 dark:text-red-300 flex items-center gap-2">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01"/></svg>
                                 Urgent Tickets
                             </h3>

@@ -11,29 +11,24 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        <!-- Dark mode - prevent flash -->
+        <script>
+            if (localStorage.getItem('dark-mode') === 'true' || (!('dark-mode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        </script>
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style>
-        .swal2-popup { font-size: 0.95rem !important; }
-        .btn-action { display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; border: 1px solid transparent; font-size: 0.75rem; font-weight: 500; border-radius: 0.375rem; color: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: all 0.15s; cursor: pointer; }
-        .btn-action:focus { outline: none; ring: 2px; ring-offset: 2px; }
-        .btn-view { background-color: #2563eb; } .btn-view:hover { background-color: #1d4ed8; }
-        .btn-edit { background-color: #d97706; } .btn-edit:hover { background-color: #b45309; }
-        .btn-delete { background-color: #dc2626; } .btn-delete:hover { background-color: #b91c1c; }
-        .btn-add { display: inline-flex; align-items: center; padding: 0.5rem 1rem; background-color: #2563eb; border: 1px solid transparent; font-size: 0.875rem; font-weight: 500; border-radius: 0.5rem; color: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: all 0.15s; cursor: pointer; }
-        .btn-add:hover { background-color: #1d4ed8; }
-        .colored-toast.swal2-icon-success { background-color: #a5dc86 !important; }
-        .colored-toast.swal2-icon-error { background-color: #f27474 !important; }
-    </style>
 </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
             @isset($header)
-                <header class="bg-white shadow">
+                <header class="bg-white dark:bg-gray-800 shadow dark:shadow-none">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>

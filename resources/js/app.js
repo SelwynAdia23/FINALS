@@ -5,6 +5,22 @@ import Alpine from 'alpinejs';
 window.Alpine = Alpine;
 Alpine.start();
 
+// Dark mode toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.getElementById('dark-toggle');
+    if (toggle) {
+        toggle.addEventListener('click', function() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('dark-mode', 'false');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('dark-mode', 'true');
+            }
+        });
+    }
+});
+
 // Real-time notification polling
 if (document.getElementById('notification-bell')) {
     setInterval(() => {
@@ -29,22 +45,22 @@ document.addEventListener('DOMContentLoaded', function() {
         fileInput.addEventListener('change', function(e) {
             const fileList = document.getElementById('file-list');
             fileList.innerHTML = '';
-            
+
             Array.from(e.target.files).forEach(file => {
                 const fileSize = (file.size / 1024 / 1024).toFixed(2);
                 const reader = new FileReader();
-                
+
                 reader.onload = function(e) {
                     const div = document.createElement('div');
-                    div.className = 'flex items-center justify-between p-2 bg-gray-50 rounded';
-                    
+                    div.className = 'flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-700 rounded';
+
                     if (file.type.startsWith('image/')) {
                         div.innerHTML = `
                             <div class="flex items-center">
                                 <img src="${e.target.result}" class="w-10 h-10 object-cover rounded mr-3">
                                 <div>
-                                    <p class="text-sm font-medium">${file.name}</p>
-                                    <p class="text-xs text-gray-500">${fileSize} MB</p>
+                                    <p class="text-sm font-medium dark:text-gray-200">${file.name}</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">${fileSize} MB</p>
                                 </div>
                             </div>
                             <button type="button" class="text-red-500 hover:text-red-700 remove-file">
@@ -56,12 +72,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     } else {
                         div.innerHTML = `
                             <div class="flex items-center">
-                                <svg class="w-10 h-10 text-gray-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <svg class="w-10 h-10 text-gray-400 dark:text-gray-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"/>
                                 </svg>
                                 <div>
-                                    <p class="text-sm font-medium">${file.name}</p>
-                                    <p class="text-xs text-gray-500">${fileSize} MB</p>
+                                    <p class="text-sm font-medium dark:text-gray-200">${file.name}</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">${fileSize} MB</p>
                                 </div>
                             </div>
                             <button type="button" class="text-red-500 hover:text-red-700 remove-file">
@@ -71,15 +87,15 @@ document.addEventListener('DOMContentLoaded', function() {
                             </button>
                         `;
                     }
-                    
+
                     fileList.appendChild(div);
-                    
+
                     // Add remove functionality
                     div.querySelector('.remove-file').addEventListener('click', function() {
                         div.remove();
                     });
                 }
-                
+
                 reader.readAsDataURL(file);
             });
         });

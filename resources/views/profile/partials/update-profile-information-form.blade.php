@@ -1,10 +1,10 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ __('Profile Information') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
             {{ __("Update your account's profile information and email address.") }}
         </p>
     </header>
@@ -30,16 +30,16 @@
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>
-                    <p class="text-sm mt-2 text-gray-800">
+                    <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
                         {{ __('Your email address is unverified.') }}
 
-                        <button form="send-verification" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <button form="send-verification" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             {{ __('Click here to re-send the verification email.') }}
                         </button>
                     </p>
 
                     @if (session('status') === 'verification-link-sent')
-                        <p class="mt-2 font-medium text-sm text-green-600">
+                        <p class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">
                             {{ __('A new verification link has been sent to your email address.') }}
                         </p>
                     @endif
@@ -54,23 +54,23 @@
         </div>
 
         @if($user->student_id)
-        <div class="bg-gray-50 p-4 rounded-lg">
+        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
             <dl class="grid grid-cols-2 gap-4 text-sm">
                 <div>
-                    <dt class="text-gray-500">Student ID</dt>
-                    <dd class="font-medium text-gray-900">{{ $user->student_id }}</dd>
+                    <dt class="text-gray-500 dark:text-gray-400">Student ID</dt>
+                    <dd class="font-medium text-gray-900 dark:text-gray-100">{{ $user->student_id }}</dd>
                 </div>
                 <div>
-                    <dt class="text-gray-500">Course</dt>
-                    <dd class="font-medium text-gray-900">{{ $user->course }}</dd>
+                    <dt class="text-gray-500 dark:text-gray-400">Course</dt>
+                    <dd class="font-medium text-gray-900 dark:text-gray-100">{{ $user->course }}</dd>
                 </div>
                 <div>
-                    <dt class="text-gray-500">Year Level</dt>
-                    <dd class="font-medium text-gray-900">{{ $user->year_level }}</dd>
+                    <dt class="text-gray-500 dark:text-gray-400">Year Level</dt>
+                    <dd class="font-medium text-gray-900 dark:text-gray-100">{{ $user->year_level }}</dd>
                 </div>
                 <div>
-                    <dt class="text-gray-500">Department</dt>
-                    <dd class="font-medium text-gray-900">{{ $user->department ?? '-' }}</dd>
+                    <dt class="text-gray-500 dark:text-gray-400">Department</dt>
+                    <dd class="font-medium text-gray-900 dark:text-gray-100">{{ $user->department ?? '-' }}</dd>
                 </div>
             </dl>
         </div>
@@ -85,7 +85,7 @@
                     x-show="show"
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600"
+                    class="text-sm text-gray-600 dark:text-gray-400"
                 >{{ __('Saved.') }}</p>
             @endif
         </div>
