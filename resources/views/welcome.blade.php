@@ -59,57 +59,7 @@
                 @endguest
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md dark:hover:shadow-gray-800/50 transition">
-                    <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/40 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Submit Concerns</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">One centralized form to report any campus issue - from broken facilities to academic concerns.</p>
-                </div>
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md dark:hover:shadow-gray-800/50 transition">
-                    <div class="w-10 h-10 bg-green-100 dark:bg-green-900/40 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-5 h-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Track Status</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Real-time updates on your concerns - see when they're received, in progress, or resolved.</p>
-                </div>
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md dark:hover:shadow-gray-800/50 transition">
-                    <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900/40 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-5 h-5 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Auto Routing</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Concerns are automatically directed to the correct department for faster resolution.</p>
-                </div>
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md dark:hover:shadow-gray-800/50 transition">
-                    <div class="w-10 h-10 bg-orange-100 dark:bg-orange-900/40 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-5 h-5 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Photo Evidence</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Upload photos of broken facilities or supporting documents with your concern.</p>
-                </div>
-            </div>
 
-            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">How It Works</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="text-center">
-                        <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">1</div>
-                        <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Submit</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Fill out the concern form, select the category and campus, attach photos if needed.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">2</div>
-                        <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Route</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Your concern is automatically sent to the right department based on category.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">3</div>
-                        <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Resolve</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Track progress in real-time and receive notification when your concern is resolved.</p>
-                    </div>
-                </div>
-            </div>
 
             <div class="mt-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center text-white">
                 <h2 class="text-2xl font-bold mb-3">Supported Departments</h2>
